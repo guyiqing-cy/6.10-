@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>6.10木兮地板</title>
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" language="javascript" src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js" ></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1066468_k550fomb0em.css">
+    <link rel="stylesheet" href="css/木兮地板.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"> 
+   <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+    <link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_1864980_tfs43e75vpe.css"/>
+  </head>
+  <body cz-shortcut-listen="true">
+       <!-- 导航 start -->
+       <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    
+                </a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">           
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a class="about" href="#">关于公司</a></li>
+                    <li><a href="#">产品展示</a></li>
+                    <li><a href="#">招商加盟</a></li>
+                    <li><a class="firstpage1" href="aboutus.html">联系我们</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <!-- 导航 end -->
+        <!-- 图片 start -->
+         <div class="home_banner">
+            <img src="images/aboutusbanner.png"/>
+        </div>
+        <!-- 图片 end -->
+        <!-- 联系我们图标 -->
+        <div class="project">
+                    <div class="project-show " ><p>联系我们</p></div>
+                    
+        </div>
+
+
+
+            <!-- 中间电话 -->
+
+            <div class="phone">
+
+                <div class="baoguo">
+                    <div class="b-left">
+                       <img src="images/phone.png" class="callphone"/> <h2 class="dianhua">027-83622296</h2>
+                    </div>
+                    <div class="b-right">
+                            <p class="b-right-icon bri1"><i class="iconfont">&#xe612;</i>13387576980</p>
+                            <p class="b-right-icon bri1"><i class="iconfont">&#xe60f;</i>yt15yi@163.com</p>
+                            <p class="b-right-icon bri1"><i class="iconfont">&#xe62d;</i>汉西三路香江家居A12栋16号湖北营销中心</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 地图 -->
+            <div class="Ditu">
+                    <div style="width:1512px;height:321px;border:#ccc solid 1px;" id="dituContent"></div>
+            </div>
+            
+       <!-- 底部 start -->
+       <div class="footer" id="footer">
+            <div class="row mx-center mx-width">
+                <div class="col-md-3 col-sm-4">
+                    <div class="footer-logo">
+                        <a href="#"><img src="https://chengbenchao.gitee.io/muxi/images/logo3.png" ></a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-8">
+                    <div class="row changepage" id="changepage">
+                        <div class="col-md-3 col-sm-3"><a href="../html/关于公司.html">关于公司</a></div>
+                        <div class="col-md-3 col-sm-3"><a href="#">产品展示</a></div>
+                        <div class="col-md-3 col-sm-3"><a href="#">招商加盟</a></div>
+                        <div class="col-md-3 col-sm-3"><a href="aboutus.html">联系我们</a></div>
+                    </div>
+                    <p class="copyright">版权所有©木兮实业有限公司  鄂ICP备18011650号</p>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="row contact">
+                        <p class="col-md-12 col-sm-4"><span class="iconfont icon-weibiaoti-1"></span> 027-83622296</p>
+                        <p class="col-md-12 col-sm-4"><span class="iconfont icon-shouji-copy"></span>13387576980</p>
+                        <p class="col-md-12 col-sm-4"><span class="iconfont icon-xinfeng"></span>&nbsp;yt15yi@163.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!-- 底部 end -->
+
+    <!-- 地图的script函数 -->
+           <script type="text/javascript">
+            //创建和初始化地图函数：
+            function initMap(){
+                createMap();//创建地图
+                setMapEvent();//设置地图事件
+                addMapControl();//向地图添加控件
+            }
+            
+            //创建地图函数：
+            function createMap(){
+                var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+                var point = new BMap.Point(114.339526,30.543756);//定义一个中心点坐标
+                map.centerAndZoom(point,20);//设定地图的中心点和坐标并将地图显示在地图容器中
+                window.map = map;//将map变量存储在全局
+            }
+            
+            //地图事件设置函数：
+            function setMapEvent(){
+                map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+                map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+                map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+                map.enableKeyboard();//启用键盘上下左右键移动地图
+            }
+            
+            //地图控件添加函数：
+            function addMapControl(){
+                //向地图中添加缩放控件
+            var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+            map.addControl(ctrl_nav);
+                //向地图中添加缩略图控件
+            var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+            map.addControl(ctrl_ove);
+                //向地图中添加比例尺控件
+            var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+            map.addControl(ctrl_sca);
+            }
+            
+            
+            initMap();//创建和初始化地图
+        </script>
+
+  </body>
+</html>
